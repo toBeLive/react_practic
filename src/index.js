@@ -1,12 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { langRu, langEn, langUa } from './languageApp.js';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+let userLanguage = 'RU';
+let currentLanguage = langUa;
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+function changeLanguage () {
+    switch (userLanguage) {
+        case 'RU': currentLanguage = langRu;
+            break;
+        case 'UA': currentLanguage = langUa;
+            break;
+        case 'EN': currentLanguage = langEn;
+            break;
+        default: currentLanguage = langUa;
+    }
+}
+
+changeLanguage();
+
+const el = (
+    <div>
+        <h1>Testy</h1>
+        <input placeholder = { currentLanguage.search } />
+        <ul>
+            <li>{ currentLanguage.firstThing }</li>
+            <li>{ currentLanguage.secondThing }</li>
+        </ul>
+    </div>
+);
+
+console.log(langRu);
+
+ReactDOM.render(el, document.getElementById('root'));
