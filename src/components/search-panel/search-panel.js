@@ -1,18 +1,17 @@
 import React from 'react';
-import * as Language from './languageApp.js';
+
+import * as Language from '../languageApp.js';
+
+import './search-panel.css';
 
 const currentLanguage = Language.langRu;
 
-// панель поиска
 const SearchPanel = () => {
-    const searchStyle = {
-        fontSize: '12px',
-    };
-
     return (
         <input
+            className = 'form-control search-input'
             placeholder = { currentLanguage.search }
-            style = { searchStyle }
+            type = 'text'
         />
     );
 };
