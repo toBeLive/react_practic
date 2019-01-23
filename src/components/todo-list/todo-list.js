@@ -7,7 +7,7 @@ import './todo-list.css';
 
 const currentLanguage = Language.langRu;
 
-const TodoList = ({ todos, onDelete }) => {
+const TodoList = ({ onDelete, onToggleDone, onToggleImportant, todos }) => {
 
     const elements = todos.map((item) => {
         const { id, ...itemProps } = item;
@@ -17,6 +17,8 @@ const TodoList = ({ todos, onDelete }) => {
                 <TodoListItem
                     { ...itemProps }
                     onDelete = { () => onDelete(id) }
+                    onToggleDone = { () => onToggleDone(id) }
+                    onToggleImportant = { () => onToggleImportant(id) }
                 />
             </li>
         );
