@@ -1,0 +1,11 @@
+.item-add-form {
+    flex-grow: 1;
+    width: auto;
+    margin-right: 3px;
+}
+
+.item-add-input {
+    flex-grow: 1;
+    width: auto;
+    margin-right: 3px;
+}

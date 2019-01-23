@@ -7,14 +7,17 @@ import './todo-list.css';
 
 const currentLanguage = Language.langRu;
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, onDelete }) => {
 
     const elements = todos.map((item) => {
         const { id, ...itemProps } = item;
 
         return (
             <li className = 'list-group-item' key = { id }>
-                <TodoListItem { ...itemProps } />
+                <TodoListItem
+                    { ...itemProps }
+                    onDelete = { () => onDelete(id) }
+                />
             </li>
         );
     });
