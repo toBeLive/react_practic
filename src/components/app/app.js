@@ -11,6 +11,7 @@ import * as Language from '../languageApp.js';
 
 import './app.css';
 
+
 export default class App extends Component {
 
     /*
@@ -34,6 +35,8 @@ export default class App extends Component {
     console.log(currentLanguage);
     */
 
+    maxId = 100;
+
     state = {
         todoData: [
             this.createTodoItem('Drink Coffee'),
@@ -42,29 +45,14 @@ export default class App extends Component {
         ],
     };
 
-    maxId = 100;
-
     createTodoItem (label) {
         return {
             label,
             important: false,
             done:      false,
-            id:        this.maxId++,
+            id:        this.maxId += 1,
         };
     }
-
-    deleteItem = (id) => {
-        console.log(id);
-        this.setState(({ todoData }) => {
-            const idx = todoData.findIndex((el) => el.id === id);
-
-            const newArray = [...todoData.slice(0, idx), ...todoData.slice(idx+1)];
-
-            return {
-                todoData: newArray,
-            };
-        });
-    };
 
     addItem = (text) => {
         console.log('Add', text);
@@ -78,6 +66,19 @@ export default class App extends Component {
 
             return {
                 todoData: newArr,
+            };
+        });
+    };
+
+    deleteItem = (id) => {
+        console.log(id);
+        this.setState(({ todoData }) => {
+            const idx = todoData.findIndex((el) => el.id === id);
+
+            const newArray = [...todoData.slice(0, idx), ...todoData.slice(idx+1)];
+
+            return {
+                todoData: newArray,
             };
         });
     };
@@ -104,6 +105,8 @@ export default class App extends Component {
     };
 
     render () {
+
+        const doneCount = this.state.todoData.filter()
         return (
             <div className = 'todo-app'>
                 <AppHeader done = { 3 } toDo = { 1 } />
