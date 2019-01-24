@@ -1,7 +1,12 @@
+@mixin margin-todo($size-t, $size-r, $size-d, $size-l) {
+    margin: $size-t $size-r $size-d $size-l;
+}
+
 .todo-app {
-    margin: 2rem 2rem 0 2rem;
+    /* margin: 2rem 2rem 0 2rem;*/
+    @include margin-todo(2rem, 2rem, 0, 2rem);
 }
 
 .top-panel {
-    margin: 1rem 0;
+    @include margin-todo(1rem, 0, 0, 0);
 }

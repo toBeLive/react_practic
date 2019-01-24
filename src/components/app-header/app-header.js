@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as Language from '../languageApp.js';
 
-import './app-header.css';
+import './app-header.scss';
 
 const currentLanguage = Language.langRu;
 

@@ -1,0 +1,14 @@
+$cool-text: #808080;
+
+.app-header {
+    align-items: flex-end;
+    font-size: 1.1rem;
+
+    h3 {
+        flex-grow: 1;
+    }
+
+    h6 {
+        color: $cool-text;
+    }
+}
