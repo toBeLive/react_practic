@@ -12,17 +12,15 @@ export default class AppHeader extends Component {
 
         console.log(`1: ${value}`);
 
-        /*
         switch ({ value }) {
             case 'RU': this.currentLanguage = Language.langRu;
                 break;
             case 'UA': this.currentLanguage = Language.langUa;
                 break;
-            case 'EN': cthis.currentLanguage = Language.langEn;
+            case 'EN': this.currentLanguage = Language.langEn;
                 break;
             default: this.currentLanguage = Language.langUa;
         }
-        */
     }
 
     render () {
@@ -42,7 +40,7 @@ export default class AppHeader extends Component {
                 </div>
                 <div className = 'app-header d-flex'>
                     <h3>Todo List</h3>
-                    <h6>{toDo} more to do, {done} done</h6>
+                    <h6>{toDo} more to do, {done} {currentLanguage.collapse}</h6>
                 </div>
             </div>
         );

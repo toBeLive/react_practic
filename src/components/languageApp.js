@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 
 const langEn = {
     nav:          [{ label: 'Map of payments PB', link: 'posts' }, { label: 'Statistics', link: 'statemap' }],

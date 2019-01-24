@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-sort-props */
 import React, { Component } from 'react';
 
 import AppHeader from '../app-header';
@@ -7,7 +8,7 @@ import ItemStatusFilter from '../item-status-filter';
 import ItemAddForm from '../item-add-form';
 
 
-import * as Language from '../languageApp.js';
+//import * as Language from '../languageApp.js';
 
 import './app.css';
 
@@ -35,28 +36,29 @@ export default class App extends Component {
     console.log(currentLanguage);
     */
 
-    maxId = 100;
-
     state = {
         todoData: [
-            this.createTodoItem('Drink Coffee'),
-            this.createTodoItem('Make Awesome App'),
-            this.createTodoItem('Have a lunch')
+            this.createTodoItem('Drink Coffee', 1),
+            this.createTodoItem('Make Awesome App', 2),
+            this.createTodoItem('Have a lunch', 3)
         ],
     };
 
-    createTodoItem (label) {
+    maxId = 100;
+
+    createTodoItem (label, id) {
         return {
             label,
             important: false,
             done:      false,
-            id:        this.maxId += 1,
+            id,
         };
     }
 
     addItem = (text) => {
         console.log('Add', text);
-        const newItem = this.createTodoItem(text);
+        const id = this.maxId +=1;
+        const newItem = this.createTodoItem(text, id);
 
         this.setState(({ todoData }) => {
             const newArr = [
@@ -106,7 +108,9 @@ export default class App extends Component {
 
     render () {
 
-        const doneCount = this.state.todoData.filter()
+        //const doneCount = this.state.todoData.filter();
+
+
         return (
             <div className = 'todo-app'>
                 <AppHeader done = { 3 } toDo = { 1 } />
